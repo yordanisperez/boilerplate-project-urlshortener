@@ -98,6 +98,9 @@ function createNewUrl(jsonUrl){
         });
     
     }
+    else{
+      res.json({ error: 'invalid url' })
+    }
   }
   catch (err) {
     console.log(err);
@@ -124,7 +127,7 @@ function handleRedirecShortUrl(req, res,next)
            if (data)
               return res.redirect(data.original_url);
            else
-              return res.json({error: 'Not a valid URL'});
+              return res.json({ error: 'invalid url' });
         });
   } 
   catch(error){
